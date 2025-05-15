@@ -3,16 +3,10 @@ package nuts.playgroud.spring_security.http_security;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 
 @Configuration
 @EnableWebSecurity
@@ -30,6 +24,7 @@ public class FormLogin {
                 .formLogin(form -> form
 //                        .loginPage("/login") // 커스텀 로그인 페이지 경로
                                 .defaultSuccessUrl("/home", true) // 로그인 성공 시 이동할 URL
+                                .loginProcessingUrl("/login")
                                 .successHandler((request, response, authentication) ->
                                         log.info("Authentication Success")
                                 )
@@ -51,6 +46,4 @@ public class FormLogin {
 
         return http.build();
     }
-
-
 }

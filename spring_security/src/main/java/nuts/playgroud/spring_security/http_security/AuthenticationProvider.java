@@ -23,5 +23,4 @@ public class AuthenticationProvider {
     AuthenticationProvider customAuthenticationProvider() {
         return new AuthenticationProvider();
     }
-
 }

@@ -51,5 +51,4 @@ public class RememberMe {
 
         return new InMemoryUserDetailsManager(List.of(user1, user2));
     }
-
 }

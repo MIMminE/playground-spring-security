@@ -29,6 +29,4 @@ public class HttpBasic {
         );
         return http.build(); // SecurityFilterChain 객체 반환
     }
-
-
 }
